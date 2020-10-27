@@ -21,12 +21,19 @@ export class BasketService
       this.items.push(new BasketItem(product.id, product.title));
   }
 
-  removeProduct(productId: number): void
+  addProductById(productId: number): void
+  {
+    var item: BasketItem = this.items.find(i => i.productId == productId);
+    if (item)
+      item.quantity++;
+  }
+
+  removeProduct(productId: number, removeAll: boolean): void
   {
     var item: BasketItem = this.items.find(i => i.productId == productId);
     if (item)
     {
-      if (item.quantity > 1)
+      if (item.quantity > 1 && !removeAll)
         item.quantity--;
       else
       {

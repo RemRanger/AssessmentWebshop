@@ -7,10 +7,12 @@
     <th mat-header-cell *matHeaderCellDef>Quantity</th>
     <td mat-cell *matCellDef="let item">{{item.quantity}}</td>
   </ng-container>
-  <ng-container matColumnDef="remove">
+  <ng-container matColumnDef="editquantity">
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let item">
-      <button class="button-color" id="removefrombasket{{item.id}}" (click)="removeFrombasket(item.productId);" title="Remove from basket"><mat-icon>remove</mat-icon></button>
+      <button class="button-color" id="removefrombasket{{item.id}}" (click)="increaseQuantity(item.productId);" title="Increase quantity"><mat-icon>add</mat-icon></button>
+      <button class="button-color" id="removefrombasket{{item.id}}" (click)="decreaseQuantity(item.productId);" title="Decrease quantity"><mat-icon>remove</mat-icon></button>
+      <button class="button-color" id="removefrombasket{{item.id}}" (click)="removeFrombasket(item.productId);" title="Remove from basket"><mat-icon>delete</mat-icon></button>
     </td>
   </ng-container>
 
