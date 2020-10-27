@@ -3,6 +3,7 @@ import { BasketService } from '../../services/basket/basket.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BasketItem } from '../../model/basketitem/basketitem.model';
 import { MatTableDataSource } from '@angular/material/table';
+import { Product } from '../../model/product/product.model';
 
 @Component({
   selector: 'app-basketitemlist',
@@ -34,6 +35,11 @@ export class BasketitemlistComponent implements OnInit
   getTotalCost(): number
   {
     return this.basketService.getTotalCost();
+  }
+
+  addToBasket(product: Product)
+  {
+    this.basketService.addProduct(product);
   }
 
   increaseQuantity(productId: number): void

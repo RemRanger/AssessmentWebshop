@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { ProductlistComponent } from './productlist.component';
 
@@ -8,7 +9,8 @@ describe('ProductlistComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProductlistComponent ]
+      declarations: [ ProductlistComponent ],
+      imports: [MatSnackBarModule],
     })
     .compileComponents();
   }));

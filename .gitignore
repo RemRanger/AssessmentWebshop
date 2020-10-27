@@ -51,3 +51,4 @@ Thumbs.db
 .browserslistrc
 .editorconfig
 .vs/AssessmentWebshop/v16/.suo
+src/app/debug.log
