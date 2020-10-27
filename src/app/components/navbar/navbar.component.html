@@ -1,0 +1,11 @@
+<mat-toolbar>
+  <span class="link"><button class="button-color" title="Home" mat-button (click)="navigateHome();"><mat-icon>home</mat-icon></button></span>
+  <span class="link">
+    <button class="button-color" title="Show basket" mat-button (click)="navigateBasket();"><mat-icon>shopping_cart</mat-icon>
+      <span *ngIf="getBasketCount() > 0">{{getBasketCount()}}</span>
+    </button></span>
+
+  <span class="filler"></span>
+  <span>{{getUserName()}}&nbsp;</span>
+  <span><img src="favicon.ico" />&nbsp;</span>
+</mat-toolbar>

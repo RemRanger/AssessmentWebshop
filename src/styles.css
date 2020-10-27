@@ -1,4 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
+html
+{
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.space
+{
+  margin-top: 70px;
+}
+
+.button-color
+{
+  background-color: rgb(0, 174, 239);
+  color: #FFFFFF;
+}
+
+table
+{
+  width: 100%;
+}
+
+.tableheader
+{
+  background-color: rgb(192, 224, 255);
+}
+
+.mat-header-cell
+{
+  font-weight: bold;
+}
+
+.mat-snack-bar-container.ok
+{
+  background: rgb(41, 202, 82);
+  color: #FFFFFF;
+}
+
+  .mat-snack-bar-container.ok button
+  {
+    color: #FFFFFF;
+  }
+
+.mat-snack-bar-container.error
+{
+  background: rgb(240, 20, 64);
+  color: #FFFFFF;
+}
+
+  .mat-snack-bar-container.error button
+  {
+    color: #FFFFFF;
+  }
