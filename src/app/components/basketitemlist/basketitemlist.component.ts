@@ -11,7 +11,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class BasketitemlistComponent implements OnInit
 {
-  displayedColumns: string[] = ['productTitle', 'quantity', 'editquantity'];
+  displayedColumns: string[] = ['productTitle', 'price', 'quantity', 'editquantity', 'cost'];
   items: BasketItem[];
   dataSource = new MatTableDataSource();
 
@@ -31,9 +31,14 @@ export class BasketitemlistComponent implements OnInit
     });
   }
 
+  getTotalCost(): number
+  {
+    return this.basketService.getTotalCost();
+  }
+
   increaseQuantity(productId: number): void
   {
-    var item: BasketItem = this.items.find(i => i.productId === productId);
+    var item: BasketItem = this.items.find(i => i.product.id === productId);
     if (item)
       this.basketService.addProductById(productId);
     else
@@ -42,7 +47,7 @@ export class BasketitemlistComponent implements OnInit
 
   decreaseQuantity(productId: number): void
   {
-    var item: BasketItem = this.items.find(i => i.productId === productId);
+    var item: BasketItem = this.items.find(i => i.product.id === productId);
     if (item)
     {
       if (item.quantity > 1)
@@ -54,12 +59,12 @@ export class BasketitemlistComponent implements OnInit
 
   removeFrombasket(productId: number): void
   {
-    var item: BasketItem = this.items.find(i => i.productId === productId);
+    var item: BasketItem = this.items.find(i => i.product.id === productId);
     if (item)
     {
       this.basketService.removeProduct(productId, true);
       this.getItems();
-      this.openSnackbar(`"${item.productTitle}" has been removed from the basket.`, "Close", "ok");
+      this.openSnackbar(`"${item.product.title}" has been removed from the basket.`, "Close", "ok");
     }
     else
       this.openSnackbar("Product not found.", "Close", "error");

@@ -1,13 +1,13 @@
+import { Product } from '../product/product.model';
+
 export class BasketItem
 {
-  productId: number;
-  productTitle: string;
+  product: Product;
   quantity: number;
 
-  constructor(productId: number, productTitle: string)
+  constructor(product: Product)
   {
-    this.productId = productId;
-    this.productTitle = productTitle;
+    this.product = product;
     this.quantity = 1;
   }
 }

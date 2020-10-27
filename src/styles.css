@@ -30,6 +30,11 @@ table
   font-weight: bold;
 }
 
+.mat-footer-cell
+{
+  font-weight: bold;
+}
+
 .mat-snack-bar-container.ok
 {
   background: rgb(41, 202, 82);

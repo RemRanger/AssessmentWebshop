@@ -14,23 +14,23 @@ export class BasketService
 
   addProduct(product: Product): void
   {
-    var item: BasketItem = this.items.find(i => i.productId == product.id);
+    var item: BasketItem = this.items.find(i => i.product.id == product.id);
     if (item)
       item.quantity++;
     else
-      this.items.push(new BasketItem(product.id, product.title));
+      this.items.push(new BasketItem(product));
   }
 
   addProductById(productId: number): void
   {
-    var item: BasketItem = this.items.find(i => i.productId == productId);
+    var item: BasketItem = this.items.find(i => i.product.id == productId);
     if (item)
       item.quantity++;
   }
 
   removeProduct(productId: number, removeAll: boolean): void
   {
-    var item: BasketItem = this.items.find(i => i.productId == productId);
+    var item: BasketItem = this.items.find(i => i.product.id == productId);
     if (item)
     {
       if (item.quantity > 1 && !removeAll)
@@ -53,5 +53,10 @@ export class BasketService
   getItemCount(): number
   {
     return this.items.length > 0 ? this.items.reduce((sum, i) => sum + i.quantity, 0) : 0;
+  }
+
+  getTotalCost(): number
+  {
+    return this.items.length > 0 ? this.items.reduce((sum, i) => sum + i.product.price * i.quantity, 0) : 0;
   }
 }
